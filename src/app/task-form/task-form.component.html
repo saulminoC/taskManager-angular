@@ -1,0 +1,64 @@
+<div class="box">
+    <h2 class="title is-4">Agregar Nueva Tarea</h2>
+  
+    <!-- Campo para el nombre de la tarea -->
+    <div class="field">
+      <label class="label">Nombre</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Nombre de la tarea"
+          [(ngModel)]="task.name"
+        />
+      </div>
+    </div>
+  
+    <!-- Campo para la descripción de la tarea -->
+    <div class="field">
+      <label class="label">Descripción</label>
+      <div class="control">
+        <textarea
+          class="textarea"
+          placeholder="Descripción de la tarea"
+          [(ngModel)]="task.description"
+        ></textarea>
+      </div>
+    </div>
+  
+    <!-- Selección de prioridad -->
+    <div class="field">
+      <label class="label">Prioridad</label>
+      <div class="control">
+        <div class="select">
+          <select [(ngModel)]="task.priority">
+            <option value="Alta">Alta</option>
+            <option value="Media">Media</option>
+            <option value="Baja">Baja</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Selección del miembro asignado -->
+    <div class="field">
+      <label class="label">Asignar a</label>
+      <div class="control">
+        <div class="select">
+          <select [(ngModel)]="task.assignedTo">
+            <option *ngFor="let member of members" [value]="member">
+              {{ member }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Botón para agregar la tarea -->
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary" (click)="addTask()">Agregar Tarea</button>
+      </div>
+    </div>
+  </div>
+  
